@@ -48,5 +48,4 @@ gem 'capistrano', '2.15.5', group: :development
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
 gem 'quiet_assets', '~> 1.0.2'
-gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails'
 gem 'thin'
