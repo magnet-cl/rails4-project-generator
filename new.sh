@@ -44,8 +44,11 @@ if [ $count -gt 1 ]
 fi
 
 rails generate active_admin:assets
-rails generate bootstrap:install static
 
 rails generate controller static home
 
 rake db:migrate
+
+echo "***"
+echo "NOTE:\nThis project has the Active Admin gem, which tends to have CSS conflicts with other CSS frameworks, particularly Bootstrap.\nIn order to fix this, you must not include the active_admin.css.scss file into the application, as the admin page includes it separately."
+echo "***"
