@@ -8,12 +8,12 @@ echo $project_name
 rails new ../$project_name --skip-bundle
 
 # Copies updated Gemfile into new project.
-cp Gemfile ../$project_name/Gemfile
+cp template_Gemfile ../$project_name/Gemfile
 
-cp database.yml ../$project_name/config/database.yml
+cp template_database.yml ../$project_name/config/database.yml
 
 mkdir ../$project_name/templates
-cp database.yml ../$project_name/templates/database.yml
+cp template_database.yml ../$project_name/templates/database.yml
 
 cp template_gitignore ../$project_name/.gitignore
 
