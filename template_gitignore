@@ -17,3 +17,6 @@
 
 # Ignore database.yml
 config/database.yml
+
+# Capistrano tab completion
+.cap_tasks~
