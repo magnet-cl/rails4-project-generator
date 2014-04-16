@@ -60,6 +60,7 @@ rails generate controller static home
 
 rake db:migrate
 
-echo "***"
-echo "NOTE:\nThis project has the Active Admin gem, which tends to have CSS conflicts with other CSS frameworks, particularly Bootstrap.\nIn order to fix this, you must not include the active_admin.css.scss file into the application, as the admin page includes it separately."
-echo "***"
+echo -e "***"
+echo -e "NOTES:\nThis project has the Active Admin gem, which tends to have CSS conflicts with other CSS frameworks, particularly Bootstrap.\nIn order to fix this, you must not include the active_admin.css.scss file into the application, as the admin page includes it separately."
+echo -e "\nIn order to use capistrano, the target hosts must be set on '${project_name}/config/deploy.rb'"
+echo -e "***"
