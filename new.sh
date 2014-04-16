@@ -17,6 +17,12 @@ cp template_database.yml ../$project_name/templates/database.yml
 
 cp template_gitignore ../$project_name/.gitignore
 
+# automatic deployment files
+cp capistrano/Capfile ../$project_name/
+cp capistrano/db.rb ../$project_name/config/
+cp capistrano/deploy.rb ../$project_name/config/
+cp capistrano/project.rb ../$project_name/config/
+
 cd ../$project_name
 
 #psql postgres -c "CREATE ROLE magnet SUPERUSER LOGIN;"
@@ -27,6 +33,9 @@ sudo -u postgres createdb -O $USER "${project_name}_test"
 
 sed -i -e "s/DATABASE_NAME/${project_name}/g" config/database.yml
 sed -i -e "s/USERNAME/${USER}/g" config/database.yml
+
+# automatic deployment basic configuration
+sed -i -e "s/PROJECT_NAME/${project_name}/g" config/deploy.rb
 
 bundle
 
