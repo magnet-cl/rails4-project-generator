@@ -1,0 +1,12 @@
+load 'deploy'
+# Uncomment if you are using Rails' asset pipeline
+#load 'deploy/assets'
+
+# project configuration
+load 'config/deploy'
+
+# db management tasks
+load 'config/db'
+
+# server management tasks
+load 'config/project'
