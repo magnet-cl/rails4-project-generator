@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Create rails project
 read -p "Enter project name: " project_name
 echo $project_name
