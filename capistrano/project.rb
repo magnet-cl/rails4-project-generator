@@ -21,6 +21,7 @@ namespace :project do
     deploy.update
     deploy.link_database_configuration
     deploy.link_uploads
+    db.migrate
   end
 
   desc "Updates the project and restarts the server."
