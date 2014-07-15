@@ -19,7 +19,6 @@ namespace :project do
   desc "Updates the project."
   task :update do
     deploy.update
-    deploy.link_database_configuration
     deploy.link_uploads
     db.migrate
   end

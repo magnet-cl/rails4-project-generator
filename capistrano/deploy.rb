@@ -33,6 +33,9 @@ require 'bundler/capistrano'
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
 
+# the database configuration is required during the precompilation of assets
+before "deploy:assets:precompile", "deploy:link_database_configuration"
+
 namespace :deploy do
   desc "Creates symbolic link for database.yml"
   task :link_database_configuration do
