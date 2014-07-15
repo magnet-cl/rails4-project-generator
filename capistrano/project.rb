@@ -43,6 +43,6 @@ namespace :project do
   task :console do
     hostname = find_servers_for_task(current_task).first
     exec "ssh -l #{user} #{hostname} -t 'source .rvm/scripts/rvm &&" \
-      "cd #{current_path} && rails c #{rails_env}'"
+      "cd #{current_path} && bundle exec rails c #{rails_env}'"
   end
 end
