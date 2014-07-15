@@ -36,13 +36,13 @@ require 'bundler/capistrano'
 namespace :deploy do
   desc "Creates symbolic link for database.yml"
   task :link_database_configuration do
-    run "ln -nfs #{shared_path}/database.yml #{current_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/database.yml #{release_path}/config/database.yml"
   end
 end
 
 namespace :deploy do
   desc "Creates symbolic link for user uploads"
   task :link_uploads do
-    run "ln -nfs #{shared_path}/uploads #{current_path}/public/uploads"
+    run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
   end
 end
