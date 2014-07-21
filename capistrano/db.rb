@@ -1,7 +1,7 @@
 namespace :db do
   desc "Database migration."
   task :migrate do
-    run "cd #{current_path} && RAILS_ENV=production rake db:migrate"
+    run "cd #{current_path} && RAILS_ENV=production bundle exec rake db:migrate"
   end
 
   desc "Database initialization."
