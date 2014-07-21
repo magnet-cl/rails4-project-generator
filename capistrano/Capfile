@@ -3,6 +3,9 @@ load 'deploy'
 # rails asset pipeline
 load 'deploy/assets'
 
+# override assets:update_asset_mtimes
+load 'config/assets'
+
 # project configuration
 load 'config/deploy'
 
