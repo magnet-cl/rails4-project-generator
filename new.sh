@@ -19,6 +19,7 @@ cp template_gitignore ../$project_name/.gitignore
 
 # automatic deployment files
 cp capistrano/Capfile ../$project_name/
+cp capistrano/assets.rb ../$project_name/config/
 cp capistrano/db.rb ../$project_name/config/
 cp capistrano/deploy.rb ../$project_name/config/
 cp capistrano/project.rb ../$project_name/config/
