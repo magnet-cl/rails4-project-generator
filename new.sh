@@ -17,6 +17,12 @@ cp template_database.yml ../$project_name/templates/database.yml
 
 cp template_gitignore ../$project_name/.gitignore
 
+# Copy the assets templates into the project
+cp template_application.css.scss ../$project_name/app/assets/stylesheets/application.css.scss
+cp template_bootstrap_import.css.scss ../$project_name/app/assets/stylesheets/bootstrap_import.css.scss
+rm ../$project_name/app/assets/stylesheets/application.css # We remove the original
+cp template_application.js ../$project_name/app/assets/javascripts/application.js
+
 # automatic deployment files
 cp capistrano/Capfile ../$project_name/
 cp capistrano/assets.rb ../$project_name/config/
@@ -46,6 +52,6 @@ rails generate devise User
 
 rake db:migrate
 
-rails generate controller static home
+rails generate controller static home --no-helper --no-assets --no-test-framework
 
 rake db:migrate

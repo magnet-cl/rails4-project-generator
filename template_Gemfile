@@ -54,7 +54,13 @@ group :development do
   gem 'binding_of_caller'
 end
 
+# Nice printing (ap)
 gem 'awesome_print'
 
 # Pagination
 gem 'kaminari'
+
+# We bring bootstrap from their repository
+gem 'bootstrap-sass', '~> 3.2'
+gem 'sass-rails', '~> 4.0.0'
+gem 'autoprefixer-rails'

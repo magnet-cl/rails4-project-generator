@@ -1,0 +1,16 @@
+/*
+ * Here the bootstrap SASS variables can be overriden in order to change the styling.
+ * i.e.: $navbar-inverse-bg: #012d50;
+ *
+ * The list of variables is defined in the following URL:
+ * https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss
+ */
+
+// Here we import the bootstrap source. All overriding must be before the imports.
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*
+ * Bootstrap extensions can be defined after here.
+ * i.e.: Defining new btn classes (btn-wide or the like).
+ */
