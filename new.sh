@@ -46,22 +46,6 @@ rails generate devise User
 
 rake db:migrate
 
-rails generate active_admin:install
-
-# fix for activeadmin
-count=$(grep "ActiveAdmin.routes(self)" config/routes.rb | wc -l)
-if [ $count -gt 1 ]
-  then
-    sed -i '0,/ActiveAdmin.routes(self)/ s///' config/routes.rb
-fi
-
-rails generate active_admin:assets
-
 rails generate controller static home
 
 rake db:migrate
-
-echo -e "***"
-echo -e "NOTES:\nThis project has the Active Admin gem, which tends to have CSS conflicts with other CSS frameworks, particularly Bootstrap.\nIn order to fix this, you must not include the active_admin.css.scss file into the application, as the admin page includes it separately."
-echo -e "\nIn order to use capistrano, the target hosts must be set on '${project_name}/config/deploy.rb'"
-echo -e "***"
