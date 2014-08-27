@@ -55,3 +55,8 @@ rake db:migrate
 rails generate controller static home --no-helper --no-assets --no-test-framework
 
 rake db:migrate
+
+echo -e "***"
+echo -e "NOTES:"
+echo -e "\nIn order to use capistrano, the target hosts must be set on '${project_name}/config/deploy.rb'"
+echo -e "***"
