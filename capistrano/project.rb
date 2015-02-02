@@ -18,6 +18,7 @@ namespace :project do
 
   desc "Updates the project."
   task :update do
+    db.backup
     deploy.update
     deploy.link_uploads
     db.migrate
