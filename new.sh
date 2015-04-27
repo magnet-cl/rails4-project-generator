@@ -22,6 +22,8 @@ cp template_application.css.scss ../$project_name/app/assets/stylesheets/applica
 cp template_bootstrap_import.css.scss ../$project_name/app/assets/stylesheets/bootstrap_import.css.scss
 rm ../$project_name/app/assets/stylesheets/application.css # We remove the original
 cp template_application.js ../$project_name/app/assets/javascripts/application.js
+rm ../$project_name/app/helpers/application_helper.rb
+cp template_application_helper.rb ../$project_name/app/helpers/application_helper.rb
 
 # automatic deployment files
 cp capistrano/Capfile ../$project_name/
