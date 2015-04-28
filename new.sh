@@ -5,7 +5,7 @@ read -p "Enter project name: " project_name
 echo $project_name
 
 # Generates a new rails project with given project_name.
-rails new ../$project_name --skip-bundle
+rails new --database=postgresql --javascript=js --skip-turbolinks --skip-bundle ../$project_name
 
 # Copies updated Gemfile into new project.
 cp template_Gemfile ../$project_name/Gemfile
