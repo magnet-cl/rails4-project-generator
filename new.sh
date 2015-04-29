@@ -5,15 +5,13 @@ read -p "Enter project name: " project_name
 echo $project_name
 
 # Generates a new rails project with given project_name.
-rails new --database=postgresql --javascript=js --skip-turbolinks --skip-bundle ../$project_name
+rails new --database=postgresql --skip-turbolinks --skip-bundle ../$project_name
 
 # Copies updated Gemfile into new project.
 cp template_Gemfile ../$project_name/Gemfile
 
 cp template_database.yml ../$project_name/config/database.yml
-
-mkdir ../$project_name/templates
-cp template_database.yml ../$project_name/templates/database.yml
+cp template_database.yml ../$project_name/config/database.yml.example
 
 cp template_gitignore ../$project_name/.gitignore
 
@@ -22,8 +20,10 @@ cp template_application.css.scss ../$project_name/app/assets/stylesheets/applica
 cp template_bootstrap_import.css.scss ../$project_name/app/assets/stylesheets/bootstrap_import.css.scss
 rm ../$project_name/app/assets/stylesheets/application.css # We remove the original
 cp template_application.js ../$project_name/app/assets/javascripts/application.js
-rm ../$project_name/app/helpers/application_helper.rb
+rm ../$project_name/app/helpers/application_helper.rb # Remove the original
 cp template_application_helper.rb ../$project_name/app/helpers/application_helper.rb
+rm ../$project_name/app/views/layouts/application.html.erb # Remove the original
+cp template_application.html.slim ../$project_name/app/views/layouts/application.html.slim
 
 # automatic deployment files
 cp capistrano/Capfile ../$project_name/
@@ -32,7 +32,7 @@ cp capistrano/db.rb ../$project_name/config/
 cp capistrano/deploy.rb ../$project_name/config/
 cp capistrano/project.rb ../$project_name/config/
 
-cd ../$project_name
+pushd ../$project_name
 
 #psql postgres -c "CREATE ROLE magnet SUPERUSER LOGIN;"
 #createuser -s -w magnet
@@ -48,13 +48,16 @@ sed -i -e "s/PROJECT_NAME/${project_name}/g" config/deploy.rb
 
 bundle
 
+# Default landing and route to root
+rails generate controller static home --template-engine=slim --no-helper --no-assets --no-test-framework
+popd
+cp template_routes.rb ../$project_name/config/routes.rb
+pushd ../$project_name
+
+# Users
 rails generate devise:install
 
 rails generate devise User
-
-rake db:migrate
-
-rails generate controller static home --no-helper --no-assets --no-test-framework
 
 rake db:migrate
 

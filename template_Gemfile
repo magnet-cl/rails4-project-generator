@@ -62,7 +62,8 @@ gem 'quiet_assets', '~> 1.1.0'
 gem 'thin'
 
 # Slim Templates
-gem 'slim'
+gem 'slim' # .html-slim files
+gem 'slim-rails' # rails generators
 
 # Nice printing (ap)
 gem 'awesome_print'
