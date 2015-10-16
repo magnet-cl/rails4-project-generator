@@ -1,0 +1,14 @@
+.card
+  h2 ¿Olvidaste tu contraseña?
+
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+
+    .form-group
+      = f.label :email
+      = f.email_field :email, autofocus: true, class: 'form-control'
+
+    .form-group
+      = f.submit 'Enviar instrucciones para restablecer contraseña', class: 'btn btn-primary'
+
+  .devise-links
+    = render 'devise/shared/links'

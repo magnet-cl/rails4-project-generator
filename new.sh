@@ -4,6 +4,8 @@
 read -p "Enter project name: " project_name
 echo $project_name
 
+export cap_project_name=`echo $project_name | sed -e "s/\b\(.\)/\u\1/g"`
+
 # Generates a new rails project with given project_name.
 rails new --database=postgresql --skip-turbolinks --skip-bundle ../$project_name
 
@@ -25,6 +27,9 @@ cp template_application_helper.rb ../$project_name/app/helpers/application_helpe
 rm ../$project_name/app/views/layouts/application.html.erb # Remove the original
 cp template_application.html.slim ../$project_name/app/views/layouts/application.html.slim
 
+#Copy folder structure
+cp -r project/. ../$project_name
+
 # automatic deployment files
 cp capistrano/Capfile ../$project_name/
 cp capistrano/assets.rb ../$project_name/config/
@@ -43,6 +48,8 @@ sudo -u postgres createdb -O $USER "${project_name}_test"
 sed -i -e "s/DATABASE_NAME/${project_name}/g" config/database.yml
 sed -i -e "s/USERNAME/${USER}/g" config/database.yml
 
+sed -i -e "s/PROJECT_NAME/${cap_project_name}/g" config/application.rb 
+
 # automatic deployment basic configuration
 sed -i -e "s/PROJECT_NAME/${project_name}/g" config/deploy.rb
 
@@ -50,14 +57,16 @@ bundle
 
 # Default landing and route to root
 rails generate controller static home --template-engine=slim --no-helper --no-assets --no-test-framework
-popd
-cp template_routes.rb ../$project_name/config/routes.rb
-pushd ../$project_name
-
 # Users
 rails generate devise:install
 
 rails generate devise User
+
+popd
+cp template_routes.rb ../$project_name/config/routes.rb
+pushd ../$project_name
+
+
 
 rake db:migrate
 

@@ -10,4 +10,4 @@ Default Admin User
 ## TODO
 
   * Check including of ActiveAdmin assets into application.
-  * Devise & ActiveAdmin I18N
+  * ActiveAdmin I18N

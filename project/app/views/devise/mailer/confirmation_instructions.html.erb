@@ -1,0 +1,13 @@
+<p>Hola <%= @resource.email %>,</p>
+
+<!-- Bienvenida -->
+
+<p>Para verificar que esta es tu dirección de correo haz click en el siguiente link:</p>
+
+<p><%= link_to 'Confirmar mi cuenta', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>Gracias por registrarte!</p>
+
+<p>Saludos,</p>
+
+<!-- Info equipo -->

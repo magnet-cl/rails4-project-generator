@@ -1,0 +1,19 @@
+.card
+  h2 Cambia tu contraseña
+
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+    = f.hidden_field :reset_password_token
+
+    .form-group
+      = f.label :password, 'Nueva contraseña'
+      = f.password_field :password, autofocus: true, autocomplete: 'off', class: 'form-control'
+
+    .form-group
+      = f.label :password_confirmation, 'Confirmar nueva contraseña'
+      = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+
+    .form-group
+      = f.submit 'Cambiar contraseña', class: 'btn btn-primary'
+
+  .devise-links
+    = render 'devise/shared/links'
