@@ -57,6 +57,9 @@ end
 # User management
 gem 'devise'
 
+# User authorization
+gem 'cancancan', '~> 1.10'
+
 # Server
 gem 'quiet_assets', '~> 1.1.0'
 gem 'thin'

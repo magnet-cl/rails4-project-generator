@@ -1,14 +1,13 @@
-.card
-  h2 Reenviar instrucciones de confirmación
+h2 Reenviar instrucciones de confirmación
 
-  = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
 
-    .form-group
-      = f.label :email
-      = f.email_field :email, autofocus: true, class: 'form-control'
+.form-group
+  = f.label :email
+  = f.email_field :email, autofocus: true, class: 'form-control'
 
-    .form-group
-      = f.submit 'Reenviar instrucciones de confirmación', class: 'btn btn-primary'
+.form-group
+  = f.submit 'Reenviar instrucciones de confirmación', class: 'btn btn-primary'
 
-  .devise-links
-    = render 'devise/shared/links'
+.devise-links
+= render 'devise/shared/links'

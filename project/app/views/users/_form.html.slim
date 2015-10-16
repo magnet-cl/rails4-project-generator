@@ -1,0 +1,19 @@
+= form_for @user do |f|
+	.row
+	  .col-md-4
+	    .form-group
+	      = f.label :email, class: 'required'
+	      = f.email_field :email, class: 'form-control', required: true
+	.row
+	  .col-md-4
+	    .form-group
+	      = f.label :first_name, class: 'required'
+	      = f.text_field :first_name, class: 'form-control', required: true
+	.row
+	  .col-md-4
+	    .form-group
+	      = f.label :last_name, class: 'required'
+	      = f.text_field :last_name, class: 'form-control', required: true
+
+	.form-group
+		= f.submit "Guardar", class: 'btn btn-primary'

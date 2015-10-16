@@ -1,0 +1,15 @@
+p
+  strong Email:
+  = @user.email
+p
+  strong Nombre:
+  = @user.first_name
+p
+  strong Apellido:
+  = @user.last_name
+
+
+-if can? :update, @user
+  = link_to 'Editar', edit_user_path(@user)
+  '|
+= link_to 'Volver', :back

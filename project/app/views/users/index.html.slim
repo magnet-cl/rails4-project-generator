@@ -1,0 +1,27 @@
+h1 Usuarios
+
+table.table
+  thead
+    tr
+      th Correo
+      td Nombre
+      td Apellido
+      th
+      th
+      th
+
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.email
+        td = user.first_name
+        td = user.last_name
+        td = link_to 'Ver', user
+        -if can? :update, user
+          td = link_to 'Editar', edit_user_path(user)
+        -if can? :destroy, user
+          td = link_to 'Eliminar', user, data: {:confirm => '¿Estás seguro?'}, :method => :delete
+
+br
+-if can? :create, User
+  = link_to 'Nuevo usuario', new_user_path(@user)

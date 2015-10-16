@@ -60,7 +60,10 @@ rails generate controller static home --template-engine=slim --no-helper --no-as
 # Users
 rails generate devise:install
 
+rails g model User first_name:string last_name:string is_admin:boolean
 rails generate devise User
+
+rails g cancan:ability
 
 popd
 cp template_routes.rb ../$project_name/config/routes.rb
