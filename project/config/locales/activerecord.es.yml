@@ -1,0 +1,14 @@
+es:
+  activerecord:
+    models:
+      user: 
+        one: Usuario
+        other: Usuarios
+    attributes:
+      user:
+        first_name: Nombre
+        last_name: Apellido
+        email: Correo
+        password: Contraseña
+        password_confirmation: Confirma tu contraseña
+        remember_me: Recordar credenciales

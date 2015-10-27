@@ -1,15 +1,15 @@
 p
-  strong Email:
+  strong= User.human_attribute_name("email")
   = @user.email
 p
-  strong Nombre:
+  strong= User.human_attribute_name("first_name")
   = @user.first_name
 p
-  strong Apellido:
+  strong= User.human_attribute_name("last_name")
   = @user.last_name
 
 
--if can? :update, @user
-  = link_to 'Editar', edit_user_path(@user)
-  '|
-= link_to 'Volver', :back
+- if can? :update, @user
+  = link_to t('views.edit'), edit_user_path(@user), class: "btn btn-default"
+  br
+= link_to t('views.back'), :back

@@ -1,7 +1,7 @@
-h2 Edita tu perfil
+h1= t('views.editing_profile')
 
 == render 'form'
 
-= link_to 'Ver', @user
+= link_to t('views.show'), @user
 '|
-= link_to 'Volver', users_path
+= link_to t('views.back'), users_path

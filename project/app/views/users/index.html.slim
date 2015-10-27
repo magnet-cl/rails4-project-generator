@@ -1,11 +1,11 @@
-h1 Usuarios
+h1 = User.model_name.human(count: 2)
 
 table.table
   thead
     tr
-      th Correo
-      td Nombre
-      td Apellido
+      th= User.human_attribute_name("email")
+      th= User.human_attribute_name("first_name")
+      th= User.human_attribute_name("last_name")
       th
       th
       th
@@ -16,12 +16,12 @@ table.table
         td = user.email
         td = user.first_name
         td = user.last_name
-        td = link_to 'Ver', user
+        td = link_to t('views.show'), user, class: "btn btn-default btn-table"
         -if can? :update, user
-          td = link_to 'Editar', edit_user_path(user)
+          td = link_to t('views.edit'), edit_user_registration_path, class: "btn btn-default"
         -if can? :destroy, user
-          td = link_to 'Eliminar', user, data: {:confirm => '¿Estás seguro?'}, :method => :delete
+          td = link_to t('views.destroy'), user, data: {:confirm => t('views.are_you_sure')}, :method => :delete, class: "btn btn-danger btn-table"
 
 br
 -if can? :create, User
-  = link_to 'Nuevo usuario', new_user_path(@user)
+  = link_to t('views.new'), new_user_path(@user), class: 'btn btn-default'

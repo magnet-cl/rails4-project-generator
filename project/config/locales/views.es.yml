@@ -1,0 +1,37 @@
+es:  
+  views:
+    save: Guardar
+    back: Volver
+    show: Ver
+    edit: Editar
+    destroy: Eliminar
+    new: Nuevo
+    editing: Editando %{name}
+    editing_profile: Editar mi perfil
+    new_with_name: Nuevo %{name}
+    are_you_sure: Estás seguro?
+
+    pagination:
+      first: "&laquo; Primero"
+      last: "Último &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Siguiente &rsaquo;"
+      truncate: "&hellip;"
+    navbar:
+      login: Login
+      logout: Salir
+      my_profile: Mi perfil
+    devise:
+      new_password: Nueva contraseña
+      confirm_new_password: Confirmar nueva contraseña
+      change_password: Cambiar contraseña
+      change_your_password: Cambia tu contraseña
+      forgot_password:  ¿Olvidaste tu contraseña?
+      send_instructions: Enviar instrucciones para restablecer contraseña
+      cancel_account: Cancelar mi cuenta
+      register: Regístrate
+      register_user: Registrar usuario
+      login: Ingresa
+      login_btn: Ingresar
+
+
