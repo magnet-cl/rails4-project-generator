@@ -66,6 +66,8 @@ rails generate devise User
 
 rails generate jquery:datatables:install bootstrap3
 
+rails g model Commune name:string region:string:index  
+
 popd
 cp template_routes.rb ../$project_name/config/routes.rb
 pushd ../$project_name
