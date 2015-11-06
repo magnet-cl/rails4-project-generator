@@ -16,6 +16,7 @@ table.table
         td = user.email
         td = user.first_name
         td = user.last_name
+        td = user.commune.try(:name)
         td = link_to t('views.show'), user, class: "btn btn-default btn-table"
         -if can? :update, user
           td = link_to t('views.edit'), edit_user_registration_path, class: "btn btn-default"

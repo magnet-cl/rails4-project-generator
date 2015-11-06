@@ -7,7 +7,9 @@ p
 p
   strong= User.human_attribute_name("last_name")
   = @user.last_name
-
+p
+  strong= User.human_attribute_name("commune")
+  = @user.commune.try(:name)
 
 - if can? :update, @user
   = link_to t('views.edit'), edit_user_path(@user), class: "btn btn-default"

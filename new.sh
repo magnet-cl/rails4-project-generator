@@ -61,12 +61,14 @@ rails generate controller static home --template-engine=slim --no-helper --no-as
 # Users
 rails generate devise:install
 
-rails g model User first_name:string last_name:string is_admin:boolean --no-test-framework
+rails g model Commune name:string region:string:index  -s
+
+rails g model User first_name:string last_name:string commune:references is_admin:boolean --no-test-framework
 rails generate devise User
 
 rails generate jquery:datatables:install bootstrap3
 
-rails g model Commune name:string region:string:index  
+
 
 popd
 cp template_routes.rb ../$project_name/config/routes.rb

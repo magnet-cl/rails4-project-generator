@@ -1,19 +1,27 @@
 = form_for @user do |f|
-	.row
-	  .col-md-4
-	    .form-group
-	      = f.label :email, class: 'required'
-	      = f.email_field :email, class: 'form-control', required: true
-	.row
-	  .col-md-4
-	    .form-group
-	      = f.label :first_name, class: 'required'
-	      = f.text_field :first_name, class: 'form-control', required: true
-	.row
-	  .col-md-4
-	    .form-group
-	      = f.label :last_name, class: 'required'
-	      = f.text_field :last_name, class: 'form-control', required: true
+  .row
+    .col-md-4
+      .form-group
+        = f.label :email, class: 'required'
+        = f.email_field :email, class: 'form-control', required: true
+  .row
+    .col-md-4
+      .form-group
+        = f.label :first_name, class: 'required'
+        = f.text_field :first_name, class: 'form-control', required: true
+  .row
+    .col-md-4
+      .form-group
+        = f.label :last_name, class: 'required'
+        = f.text_field :last_name, class: 'form-control', required: true
+  .row
+    .col-md-4
+      .form-group
+        = f.label :region
+        = f.select :commune, options_for_select(Commune.regions, @user.commune.try(:region)), {prompt: 'Seleccionar región'}, class: 'form-control region-selector'
 
-	.form-group
-		= f.submit t('views.save'), class: 'btn btn-primary'
+        = f.select :commune_id, 
+          options_for_select(Commune.all.map{ |c| [ c.name, c.id, {'data-region'=>c.region}] }, @user.commune.try(:id)), {prompt: 'Seleccionar comuna'}, class: 'form-control commune-selector', required: true
+
+  .form-group
+    = f.submit t('views.save'), class: 'btn btn-primary'
