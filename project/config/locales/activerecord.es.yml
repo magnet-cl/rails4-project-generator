@@ -1,7 +1,7 @@
 es:
   activerecord:
     models:
-      user: 
+      user:
         one: Usuario
         other: Usuarios
     attributes:

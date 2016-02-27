@@ -7,7 +7,7 @@ echo $project_name
 export cap_project_name=`echo $project_name | sed -e "s/\b\(.\)/\u\1/g"`
 
 # Generates a new rails project with given project_name.
-rails new --database=postgresql --skip-turbolinks --skip-bundle ../$project_name
+rails new --database=postgresql --skip-turbolinks --skip-spring --skip-bundle ../$project_name
 
 # Copies updated Gemfile into new project.
 cp template_Gemfile ../$project_name/Gemfile
@@ -48,7 +48,7 @@ sudo -u postgres createdb -O $USER "${project_name}_test"
 sed -i -e "s/DATABASE_NAME/${project_name}/g" config/database.yml
 sed -i -e "s/USERNAME/${USER}/g" config/database.yml
 
-sed -i -e "s/PROJECT_NAME/${cap_project_name}/g" config/application.rb 
+sed -i -e "s/PROJECT_NAME/${cap_project_name}/g" config/application.rb
 
 # automatic deployment basic configuration
 sed -i -e "s/PROJECT_NAME/${project_name}/g" config/deploy.rb

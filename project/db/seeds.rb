@@ -3,8 +3,8 @@
 
 User.create({
   email: 'admin@magnet.cl',
-  first_name: 'Admin',
-  last_name: 'App',
+  first_name: 'Adam',
+  last_name: 'Minier',
   password: '12345678',
   password_confirmation: '12345678',
   is_admin: true
